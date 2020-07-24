@@ -1,0 +1,68 @@
+<!-- chat/templates/chat/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Chat Rooms</title>
+</head>
+<style>
+body{
+    color: cyan;
+    text-align: center;
+    background: black;
+}
+h1{
+    color: deepgreen;
+    font-size: 48px
+}
+.font{
+    font-size: 25px;
+    color: white
+}
+.fonts{
+    color: blue;
+    background: white
+}
+.s{
+    background: yellow;
+    font-size: 64px;
+    color: green
+}
+.fo{
+    font-size: 24px;
+    text-align: left
+}
+.o{
+    font-size: 25px;
+    color: green
+}
+
+</style>
+<body>
+<h1 class="fonts" text-color="orange">WELCOME TO <p class="s">JustChat</p><h1><br><hr>
+    <p class="font">Which chat room would you like to enter ?<br><hr></p>
+    <p class="fo">Choose one from the following and enter it.</p>
+    <ol class="fo">
+    <li>Global</li>
+    <li>Join a server</li>
+    <li>Make A Server</li>
+    <p><input id="room-name-input" type="text" size="100"><br><hr></p>
+    <p><input class="o" id="room-name-submit" type="button"  value="Go"></p>
+
+    <script>
+        document.querySelector('#room-name-input').focus();
+        document.querySelector('#room-name-input').onkeyup = function(e) {
+            if (e.keyCode === 13) {  // enter, return
+                document.querySelector('#room-name-submit').click();
+            }
+        };
+
+        document.querySelector('#room-name-submit').onclick = function(e) {
+            var roomName = document.querySelector('#room-name-input').value;
+            window.location.pathname = '/chat/' + roomName + '/';
+        };
+    </script>
+
+
+</body>
+</html>
